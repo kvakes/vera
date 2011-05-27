@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookID" version="2.0">
+	<metadata
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:opf="http://www.idpf.org/2007/opf">
+		<dc:title>В чем моя вера?</dc:title>
+		<dc:language xsi:type="dcterms:RFC3066">ru</dc:language>
+		<dc:identifier id="BookID" opf:scheme="ISBN">7ff2ad141eb420b21148a532965da6c4</dc:identifier>
+		<dc:creator opf:role="aut">Лев Николаевич Толстой</dc:creator>
+		<dc:date xsi:type="dcterms:W3CDTF">1884-01-22</dc:date>
+		<dc:subject>Религия, Философия</dc:subject>
+		<dc:description>Размышления Льва Толстого о сути христианского учения.</dc:description>
+	</metadata>
+	<manifest>
+		<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+		<item id="common.css" href="Styles/common.css" media-type="text/css" />
+		<item id="preface" href="Text/preface.xhtml" media-type="application/xhtml+xml" />
+		<item id="I" href="Text/I.xhtml" media-type="application/xhtml+xml" />
+		<item id="II" href="Text/II.xhtml" media-type="application/xhtml+xml" />
+		<item id="III" href="Text/III.xhtml" media-type="application/xhtml+xml" />
+		<item id="IV" href="Text/IV.xhtml" media-type="application/xhtml+xml" />
+		<item id="V" href="Text/V.xhtml" media-type="application/xhtml+xml" />
+		<item id="VI" href="Text/VI.xhtml" media-type="application/xhtml+xml" />
+		<item id="VII" href="Text/VII.xhtml" media-type="application/xhtml+xml" />
+		<item id="VIII" href="Text/VIII.xhtml" media-type="application/xhtml+xml" />
+		<item id="IX" href="Text/IX.xhtml" media-type="application/xhtml+xml" />
+		<item id="X" href="Text/X.xhtml" media-type="application/xhtml+xml" />
+		<item id="XI" href="Text/XI.xhtml" media-type="application/xhtml+xml" />
+		<item id="XII" href="Text/XII.xhtml" media-type="application/xhtml+xml" />
+	</manifest>
+	<spine toc="ncx">
+		<itemref idref="preface"/>
+		<itemref idref="I"/>
+		<itemref idref="II"/>
+		<itemref idref="III"/>
+		<itemref idref="IV"/>
+		<itemref idref="V"/>
+		<itemref idref="VI"/>
+		<itemref idref="VII"/>
+		<itemref idref="VIII"/>
+		<itemref idref="IX"/>
+		<itemref idref="X"/>
+		<itemref idref="XI"/>
+		<itemref idref="XII"/>
+	</spine>
+	<guide>
+		<reference type="text" title="Text" href="Text/preface.xhtml" />
+	</guide>
+</package>
