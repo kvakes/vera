@@ -6,7 +6,17 @@ body {
 }
 h1, h2 {
 	font-family: "Myriad Pro", "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+	font-size: 2em;
 }
 h2, p.separator {
 	text-align: center;
+}
+p {
+	margin:0;
+}
+p:not(:nth-of-type(1)) {
+	text-indent:1.5em;
+}
+p:nth-of-type(1):first-line {
+	font-size:1.2em;
 }
