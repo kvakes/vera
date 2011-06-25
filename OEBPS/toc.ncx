@@ -15,7 +15,7 @@
 			<navLabel>
 				<text>В чем моя вера?</text>
 			</navLabel>
-			<content src="Text/preface.xhtml" />
+			<content src="Text/introduction.xhtml" />
 		</navPoint>
 		<navPoint id="navPoint-1" playOrder="1">
 			<navLabel>

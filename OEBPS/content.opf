@@ -16,7 +16,7 @@
 	<manifest>
 		<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
 		<item id="common.css" href="Styles/common.css" media-type="text/css" />
-		<item id="preface" href="Text/preface.xhtml" media-type="application/xhtml+xml" />
+		<item id="introduction" href="Text/introduction.xhtml" media-type="application/xhtml+xml" />
 		<item id="I" href="Text/I.xhtml" media-type="application/xhtml+xml" />
 		<item id="II" href="Text/II.xhtml" media-type="application/xhtml+xml" />
 		<item id="III" href="Text/III.xhtml" media-type="application/xhtml+xml" />
@@ -31,7 +31,7 @@
 		<item id="XII" href="Text/XII.xhtml" media-type="application/xhtml+xml" />
 	</manifest>
 	<spine toc="ncx">
-		<itemref idref="preface"/>
+		<itemref idref="introduction"/>
 		<itemref idref="I"/>
 		<itemref idref="II"/>
 		<itemref idref="III"/>
@@ -46,6 +46,6 @@
 		<itemref idref="XII"/>
 	</spine>
 	<guide>
-		<reference type="text" title="Text" href="Text/preface.xhtml" />
+		<reference type="text" title="Text" href="Text/introduction.xhtml" />
 	</guide>
 </package>
