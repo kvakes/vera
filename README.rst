@@ -18,6 +18,8 @@ Vera - это проект создания электронной книги и
 Компиляция книги из исходников
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-$ zip -X Vera.epub mimetype
-$ zip -rg Vera.epub META-INF/ -x *.DS_Store
-$ zip -rg Vera.epub OEBPS/ -x *.DS_Store
+Код для маководов::
+
+   $ zip -X Vera.epub mimetype
+   $ zip -rg Vera.epub META-INF/ -x *.DS_Store
+   $ zip -rg Vera.epub OEBPS/ -x *.DS_Store
