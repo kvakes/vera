@@ -15,8 +15,10 @@ Vera - это проект создания электронной книги и
 
 Описание формата тут http://www.hxa.name/articles/content/epub-guide_hxa7241_2007.html
 
-Компиляция книги из исходников:
+Компиляция книги из исходников
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Код для UNIX машин::
 
    $ zip -X Vera.epub mimetype
    $ zip -rg Vera.epub META-INF/ -x *.DS_Store
