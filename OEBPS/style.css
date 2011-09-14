@@ -13,3 +13,22 @@ p {
 p:not(:nth-of-type(1)) {
 	text-indent:1em;
 }
+blockquote p {
+	text-indent: 0 !important;
+}
+.footnote {
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+	padding: .85em 1.7em;
+}
+.footnote sup {
+	margin-left: -.85em;
+}
+.verse {
+	vertical-align: super;
+	color: #777;
+	font-size: .5em;
+}
+.nowrap {
+	white-space: nowrap;
+}
