@@ -28,6 +28,10 @@ blockquote p {
 	vertical-align: super;
 	color: #777;
 	font-size: .5em;
+	display: inline-block;
+	width: 3em;
+	margin-left: -3.5em;
+	text-align: right;
 }
 .nowrap {
 	white-space: nowrap;
