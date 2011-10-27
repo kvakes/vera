@@ -97,7 +97,7 @@ h2 {
 	font-size: 2.1em;
 }
 header h1 {
-	background: transparent url(/i/line.png) 50% 100% no-repeat;
+	background: transparent url(../i/line.png) 50% 100% no-repeat;
 	padding-bottom: 1.3em;
 }
 header h1 span {
