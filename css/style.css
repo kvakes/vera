@@ -74,6 +74,10 @@ body {
 h1, h2, h3 {
 	font-family: 'PT Serif Caption', Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 }
+.wf-loading body, .wf-inactive body,
+.wf-loading h1, .wf-loading h2, .wf-loading h3, .wf-inactive h1, .wf-inactive h2, .wf-inactive h3 {
+	font-family: 'Philosopher', Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+}
 
 html {
 	background: #212121;
@@ -84,17 +88,6 @@ body {
 }
 header {
 	margin-top: 2em;
-}
-header p {
-	text-align: center;
-}
-header p a {
-	display: inline-block;
-	color: #000 !important;
-	text-decoration: none;
-	background: #C0CA55;
-	border-radius: 3px;
-	padding: 3px 5px 1px 5px;
 }
 h1, h2, h3 {
 	text-align: center;
@@ -124,17 +117,26 @@ header h1 span {
 	margin: 0 auto;
 	font-size: 1.3em;
 }
+.links {
+	text-align: center;
+}
 #epub {
 	display: block;
-	text-align: center;
 	font-size: 2em;
 	color: #fff !important;
 	background: #AD5472;
 	width: 80%;
-	margin: 1em auto;
+	margin: 1em auto 3px auto;
 	border-radius: 10px;
 	text-decoration: none;
 	padding-top: 5px;
+}
+#lang {
+	font-size: .8em;
+	color: #C0CA55 !important;
+	background: transparent;
+	border-radius: 3px;
+	padding: 3px 5px 1px 5px;
 }
 footer {
 	text-align: center;
