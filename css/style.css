@@ -85,7 +85,7 @@ body {
 header {
 	margin-top: 2em;
 }
-h1, h2 {
+h1, h2, h3 {
 	text-align: center;
 	font-weight: normal;
 	text-shadow: 0 0 12px #000;
@@ -95,6 +95,9 @@ h1 {
 }
 h2 {
 	font-size: 2.1em;
+}
+h3 {
+	font-size: 1.6em;
 }
 header h1 {
 	background: transparent url(../i/line.png) 50% 100% no-repeat;
