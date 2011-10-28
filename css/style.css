@@ -95,9 +95,11 @@ h1 {
 }
 h2 {
 	font-size: 2.1em;
+	margin-bottom: 0;
 }
 h3 {
-	font-size: 1.6em;
+	font-size: .9em;
+	margin-top: 0;
 }
 header h1 {
 	background: transparent url(../i/line.png) 50% 100% no-repeat;
