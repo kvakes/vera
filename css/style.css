@@ -109,6 +109,10 @@ header h1 {
 	background: transparent url(../i/line.png) 50% 100% no-repeat;
 	padding-bottom: 1.3em;
 }
+header h1 img {
+	width: 200px;
+	height: 294px;
+}
 header h1 span {
 	display: block;
 }
