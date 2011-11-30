@@ -113,6 +113,14 @@ header h1 img {
 	width: 200px;
 	height: 294px;
 }
+header h1 img.flipped {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
 header h1 span {
 	display: block;
 }
@@ -162,6 +170,16 @@ footer {
 	footer {
 		width: 98%;
 	}
+}
+
+@media only screen and (min-device-width: 480px) {
+  #lightning {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    pointer-events: none;
+  }
 }
 
 /* ==|== print styles ======================================================= */
