@@ -12,5 +12,4 @@
   f.src = root + 'js/flipper.js';
   s.src = root + 'js/striker.js';
   b.appendChild(f);
-  b.appendChild(s);
 }).call(this);
