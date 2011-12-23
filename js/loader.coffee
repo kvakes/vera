@@ -1,5 +1,5 @@
 $ ->
-  root = 'http://localhost:8888/js/' # in production should be http://kvakes.github.com/vera/js/
+  root = 'http://kvakes.github.com/vera/js/' # in production should be http://kvakes.github.com/vera/js/
   
   # All versions
   $.getScript root + 'twitter.js'
