@@ -9,4 +9,4 @@ $ ->
     return
 
   $.getScript root + 'flipper.js'
-  $.getScript root + 'striker.js'
+  #$.getScript root + 'striker.js'

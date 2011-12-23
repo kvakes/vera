@@ -6,7 +6,6 @@
     if (screen.width < 480) {
       return;
     }
-    $.getScript(root + 'flipper.js');
-    return $.getScript(root + 'striker.js');
+    return $.getScript(root + 'flipper.js');
   });
 }).call(this);
