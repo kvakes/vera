@@ -1,23 +1,21 @@
-body = window.b
-img = window.i
+$img = $ '#leo'
 
 # Flip an image
 flipper = false
-body.addEventListener 'mousemove', (e) ->
-  if e.pageX <= img.offsetLeft + img.width/2 and 'flipped' not in img.classList
+$('body').mousemove (e) ->
+  if e.pageX <= $img.offset().left + $img.width() / 2 and !$img.hasClass 'flipped'
     window.clearTimeout flipper
     flipper = window.setTimeout ->
-      img.className = 'flipped'
+      $img.addClass 'flipped'
     , 2000
-  else if e.pageX > img.offsetLeft + img.width/2 and 'flipped' in img.classList
+  else if e.pageX > $img.offset().left + $img.width() / 2 and $img.hasClass 'flipped'
     window.clearTimeout flipper
     flipper = window.setTimeout ->
-      img.className = ''
+      $img.removeClass 'flipped'
     , 2000
   else
     window.clearTimeout flipper
-, false
 
 # Don't change state when window is not active
-window.addEventListener 'blur', ->
+$(window).blur ->
   window.clearTimeout flipper

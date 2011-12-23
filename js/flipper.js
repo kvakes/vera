@@ -1,30 +1,23 @@
 (function() {
-  var body, flipper, img;
-  var __indexOf = Array.prototype.indexOf || function(item) {
-    for (var i = 0, l = this.length; i < l; i++) {
-      if (this[i] === item) return i;
-    }
-    return -1;
-  };
-  body = window.b;
-  img = window.i;
+  var $img, flipper;
+  $img = $('#leo');
   flipper = false;
-  body.addEventListener('mousemove', function(e) {
-    if (e.pageX <= img.offsetLeft + img.width / 2 && __indexOf.call(img.classList, 'flipped') < 0) {
+  $('body').mousemove(function(e) {
+    if (e.pageX <= $img.offset().left + $img.width() / 2 && !$img.hasClass('flipped')) {
       window.clearTimeout(flipper);
       return flipper = window.setTimeout(function() {
-        return img.className = 'flipped';
+        return $img.addClass('flipped');
       }, 2000);
-    } else if (e.pageX > img.offsetLeft + img.width / 2 && __indexOf.call(img.classList, 'flipped') >= 0) {
+    } else if (e.pageX > $img.offset().left + $img.width() / 2 && $img.hasClass('flipped')) {
       window.clearTimeout(flipper);
       return flipper = window.setTimeout(function() {
-        return img.className = '';
+        return $img.removeClass('flipped');
       }, 2000);
     } else {
       return window.clearTimeout(flipper);
     }
-  }, false);
-  window.addEventListener('blur', function() {
+  });
+  $(window).blur(function() {
     return window.clearTimeout(flipper);
   });
 }).call(this);

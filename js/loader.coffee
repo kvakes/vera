@@ -1,16 +1,9 @@
-if screen.width < 480
-  return
+$ ->
+  root = 'http://localhost:8888/js/' # in production should be http://kvakes.github.com/vera/js/
 
-root = 'http://kvakes.github.com/vera/'
+  # Only desktop
+  if screen.width < 480
+    return
 
-window.b = document.getElementsByTagName('body')[0]
-window.i = document.getElementById 'leo'
-
-f = document.createElement 'script'
-s = document.createElement 'script'
-f.type = s.type = 'text/javascript'
-f.src = root + 'js/flipper.js'
-s.src = root + 'js/striker.js'
-
-b.appendChild f
-#b.appendChild s
+  $.getScript root + 'flipper.js'
+  $.getScript root + 'striker.js'
