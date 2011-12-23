@@ -124,6 +124,13 @@ header h1 img.flipped {
 header h1 span {
 	display: block;
 }
+
+/* Centered blocks */
+#main, aside, #credits {
+  width: 400px;
+  margin: 0 auto;
+}
+
 #main {
 	font-size: 1.3em;
 }
@@ -148,20 +155,32 @@ header h1 span {
 	border-radius: 3px;
 	padding: 3px 5px 1px 5px;
 }
-aside {
+#museum {
   border-top: 1px solid #444;
-  border-bottom: 1px solid #444;
-  padding: 10px;
+  padding: 10px 3%;
+  box-sizing: border-box;
+  text-align: left;
 }
-footer {
+#credits {
 	text-align: center;
-	padding-top: 5px;
+	margin-top: 50px;
+	padding-top: 50px;
+	background: transparent url(../i/line.png) 50% 0 no-repeat;
 }
-
-/* Centered blocks */
-#main, aside, footer {
-  width: 400px;
-  margin: 0 auto;
+#tw {
+  text-align: center;
+  border: 1px dashed #333;
+  border-radius: .5em;
+  padding: 1em;
+}
+#tw blockquote {
+  text-align: left;
+  font-size: .8em;
+  margin: 0;
+}
+#tw span {
+  display: block;
+  text-align: right;
 }
 
 /* ==|== media queries ====================================================== */
@@ -173,8 +192,8 @@ footer {
 	#epub {
 		font-size: 1.4em;
 	}
-	footer {
-		width: 98%;
+	#credits, aside {
+	  width: 98%;
 	}
 }
 

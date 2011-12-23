@@ -2,6 +2,7 @@
   $(function() {
     var root;
     root = 'http://localhost:8888/js/';
+    $.getScript(root + 'twitter.js');
     if (screen.width < 480) {
       return;
     }
