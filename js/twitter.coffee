@@ -24,17 +24,14 @@ $ ->
       iterateSearch = (list) ->
         for y in list
           n = y.replace '#', ''
-          console.log n
           if isInLifespan(y) and y > year
             year = y
           
       ## First try to just find digit
       if yrs = tweet.text.match /\d{4}/g
-        console.log 1
         iterateSearch yrs
       ## Then hashtag, prefer hashtag over just a year
       if yrs = tweet.text.match /#\d{4}/
-        console.log 2
         iterateSearch yrs
       
       ## Date
@@ -56,7 +53,5 @@ $ ->
       date = new Date(tweet.created_at)
       
       tweet_url = 'http://twitter.com/'+twitter_user+'/status/'+tweet.id_str
-      
-      console.log year
       
       $container.html '<blockquote cite="'+tweet_url+'"><p>'+html+'</p><footer><span>&mdash; <a href="'+tweet_url+'">'+tweet.user.name+', '+tweet.user.location+'</a></span><span>'+date.getDate()+' '+months[date.getMonth()]+(if year isnt 0 then ' '+year else '')+'</span></footer></blockquote>'

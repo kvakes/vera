@@ -27,23 +27,19 @@
           for (_i = 0, _len = list.length; _i < _len; _i++) {
             y = list[_i];
             n = y.replace('#', '');
-            console.log(n);
             _results.push(isInLifespan(y) && y > year ? year = y : void 0);
           }
           return _results;
         };
         if (yrs = tweet.text.match(/\d{4}/g)) {
-          console.log(1);
           iterateSearch(yrs);
         }
         if (yrs = tweet.text.match(/#\d{4}/)) {
-          console.log(2);
           iterateSearch(yrs);
         }
         months = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
         date = new Date(tweet.created_at);
         tweet_url = 'http://twitter.com/' + twitter_user + '/status/' + tweet.id_str;
-        console.log(year);
         return $container.html('<blockquote cite="' + tweet_url + '"><p>' + html + '</p><footer><span>&mdash; <a href="' + tweet_url + '">' + tweet.user.name + ', ' + tweet.user.location + '</a></span><span>' + date.getDate() + ' ' + months[date.getMonth()] + (year !== 0 ? ' ' + year : '') + '</span></footer></blockquote>');
       }
     });
