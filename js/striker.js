@@ -1,5 +1,41 @@
+
+/*
+This class draws lightning strike. Pretty nice, huh?
+
+Note: all floating points coordinates are rounded in order to optimize animation
+*/
+
 (function() {
-  var Branch, Impact, Lightning, init;
+  var Branch, Impact, Lightning, Vector, init;
+
+  Vector = function(x, y) {
+    this.x = Math.round(x);
+    this.y = Math.round(y);
+    this.length = Math.round(Math.sqrt(this.x * this.x + this.y * this.y));
+    this.primitive = function() {
+      return [this.x, this.y];
+    };
+    this.add = function(z) {
+      return new Vector(this.x + z.x, this.y + z.y);
+    };
+    this.subtract = function(z) {
+      return new Vector(this.x - z.x, this.y - z.y);
+    };
+    this.multiply = function(m) {
+      return new Vector(Math.round(this.x * m), Math.round(this.y * m));
+    };
+    this.twist = function(d) {
+      var mess;
+      if (d == null) d = 10;
+      mess = function(v) {
+        return v - d / 2 + Math.round(d * Math.random());
+      };
+      this.x = mess(this.x);
+      this.y = mess(this.y);
+      return this;
+    };
+    return this;
+  };
 
   Impact = function(x, y) {
     return this.r = 10;
@@ -11,39 +47,34 @@
     }
   };
 
-  Branch = function(lightning, start, vector) {
-    this.lightning = lightning;
-    this.start = start;
-    this.vector = vector;
-    this.branchTime = 100;
-    this.colorSteps = 20;
-    this.age = 1;
-    this.ctx = this.lightning.ctx;
+  Branch = function(lightning, start, end) {
+    this.l = lightning;
+    this.ctx = this.l.ctx;
     this.ctx.strokeStyle = 'rgba(123,85,211,0.2)';
-    this.lines = [];
-    this.draw();
-    return this.lightning.branches += 1;
+    this.start = start;
+    this.end = end;
+    this.age = 1;
+    return this.draw();
   };
 
   Branch.prototype = {
-    mix: function(value) {
-      return value - Math.random() * value * 2;
-    },
     draw: function() {
-      var ds, f, l, s, segments, v;
-      segments = Math.max(20, Math.sqrt(this.vector[0] * this.vector[0] + this.vector[1] * this.vector[1]) / 10);
-      s = [this.start[0], this.start[1]];
-      v = [this.vector[0], this.vector[1]];
-      l = v[0] * v[0] + v[1] * v[1];
-      f = [s[0] + v[0], s[0] + v[0]];
+      var dv, s, segments, v;
+      this.l.branches += 1;
+      s = this.start;
+      v = this.end.subtract(this.start);
       this.ctx.beginPath();
-      this.ctx.moveTo(s[0], s[1]);
-      console.log(v);
-      while (l > (s[0] - this.start[0]) * (s[0] - this.start[0]) + (s[1] - this.start[1]) * (s[1] - this.start[1])) {
-        ds = [s[0] + (f[0] - this.start[0]) / segments + this.mix(5), s[1] + (f[1] - this.start[1]) / segments + this.mix(5)];
-        this.ctx.lineTo(ds[0], ds[1]);
-        s = [ds[0], ds[1]];
-        v = [f[0] - ds[0], f[1] - ds[1]];
+      this.ctx.moveTo(s.x, s.y);
+      while (v.length > 0) {
+        segments = Math.max(10, v.length / 10);
+        dv = v.multiply(1 / segments);
+        if (v.length < 15) {
+          s = this.end;
+        } else {
+          s = s.add(dv).twist();
+        }
+        this.ctx.lineTo(s.x, s.y);
+        v = this.end.subtract(s);
       }
       return this.ctx.stroke();
     }
@@ -51,26 +82,28 @@
 
   Lightning = function() {
     this.branches = 0;
-    this.maxBranches = 50;
+    this.maxBranches = 1;
+    this.branchTime = 100;
+    this.colorSteps = 20;
     this.active = false;
-    this.start = [500, 500];
-    this.render = function(finish) {
+    this.start = new Vector(500, 500);
+    this.render = function(end) {
       var strike, that;
       this.duration = Math.random() * 5000;
-      this.vector = [finish[0] - this.start[0], finish[1] - this.start[1]];
       this.active = true;
+      this.end = end;
       that = this;
       strike = window.setInterval(function() {
         var b;
-        return b = new Branch(that, that.start, that.vector);
+        return b = new Branch(that, that.start, that.end);
       }, 5);
       return window.setTimeout(function() {
         this.active = false;
         return window.clearInterval(strike);
       }, this.duration);
     };
-    this.updateCoordinates = function(finish) {
-      return this.vector = [finish[0] - this.start[0], finish[1] - this.start[1]];
+    this.updateEndCoordinates = function(end) {
+      return this.end = end;
     };
     this.init = function(ctx) {
       return this.ctx = ctx;
@@ -89,10 +122,10 @@
     l = new Lightning();
     l.init(ctx);
     $(window).click(function(e) {
-      return l.render([e.pageX, e.pageY]);
+      return l.render(new Vector(e.pageX, e.pageY));
     });
     return $(window).mousemove(function(e) {
-      return l.updateCoordinates([e.pageX, e.pageY]);
+      return l.updateEndCoordinates(new Vector(e.pageX, e.pageY));
     });
   };
 
