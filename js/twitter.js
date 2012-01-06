@@ -1,4 +1,5 @@
 (function() {
+
   $(function() {
     var $container, twitter_user;
     twitter_user = 'tolstoy_lev';
@@ -27,16 +28,16 @@
           for (_i = 0, _len = list.length; _i < _len; _i++) {
             y = list[_i];
             n = y.replace('#', '');
-            _results.push(isInLifespan(y) && y > year ? year = y : void 0);
+            if (isInLifespan(y) && y > year) {
+              _results.push(year = y);
+            } else {
+              _results.push(void 0);
+            }
           }
           return _results;
         };
-        if (yrs = tweet.text.match(/\d{4}/g)) {
-          iterateSearch(yrs);
-        }
-        if (yrs = tweet.text.match(/#\d{4}/)) {
-          iterateSearch(yrs);
-        }
+        if (yrs = tweet.text.match(/\d{4}/g)) iterateSearch(yrs);
+        if (yrs = tweet.text.match(/#\d{4}/)) iterateSearch(yrs);
         months = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
         date = new Date(tweet.created_at);
         tweet_url = 'http://twitter.com/' + twitter_user + '/status/' + tweet.id_str;
@@ -44,4 +45,5 @@
       }
     });
   });
+
 }).call(this);
