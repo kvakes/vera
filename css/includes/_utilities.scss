@@ -1,0 +1,52 @@
+// These are very handy tricks made possible by Sass. Read the docs here http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#mixins
+
+// Clearfix (to avoid non-semantic classes in your HTML)
+@mixin cf {
+	&:before, &:after { content: ""; display: table; }
+	&:after { clear: both; }
+	zoom: 1;
+}
+
+// Transition, default 1s
+@mixin transition($target: all, $time: 1s) {
+  -webkit-transition: all $time ease-in-out;
+  -moz-transition: all $time ease-in-out;
+  -o-transition: all $time ease-in-out;
+  -ms-transition: all $time ease-in-out;
+  transition: all $time ease-in-out;
+  -webkit-transform: translateZ(0);// Prevents Chrome from flickering
+}
+
+// Transform. There's one nasty text antialiasing bug in Webkit https://bugs.webkit.org/show_bug.cgi?id=23364
+@mixin transform ($t) {
+  -webkit-transform: $t;
+  -moz-transform: $t;
+  -o-transform: $t;
+  -ms-transform: $t;
+  transform: $t;
+}
+
+// See http://caniuse.com/#search=box-shadow to understand why we don't need -o or -ms here
+@mixin box-shadow ($s) {
+  -webkit-box-shadow: $s;
+  -moz-box-shadow: $s;
+  box-shadow: $s;
+}
+
+// The syntax is very inconsistent across browsers, so handle with care
+@mixin linear-gradient ($g) {
+  background-image: -webkit-linear-gradient($g);
+  background-image: -moz-linear-gradient($g);
+  background-image: -o-linear-gradient($g);
+  background-image: -ms-linear-gradient($g);
+  background-image: linear-gradient($g);
+}
+
+@mixin columns ($count, $gap) {
+  -webkit-columns: $count;
+  -webkit-column-gap: $gap;
+  -moz-columns: $count;
+  -moz-column-gap: $gap;
+  columns: $count;
+  column-gap: $gap;
+}
